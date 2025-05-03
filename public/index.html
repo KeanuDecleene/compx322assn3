@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Project Management API</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Project Management REST API</h1>
+    <p>
+      This RESTful API lets users manage their projects using HTTP methods. It
+      supports POST, GET, PUT, and DELETE requests to create, retrieve, update,
+      and delete project data from the database.
+    </p>
+
+    <h2>Possible Endpoints</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>POST</td>
+          <td>/projects</td>
+          <td>Create a new project and save it into db</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/projects</td>
+          <td>Retrieve all projects in a list</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/projects/:id</td>
+          <td>Retrieve projects by ID</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/projects/by-name/:projectName</td>
+          <td>Retrieve projects by name</td>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td>/projects/:id</td>
+          <td>Update project info by ID</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/projects/:id</td>
+          <td>Delete a project by ID</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/projects</td>
+          <td>Delete all projects from db</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="postman">
+      <h2>Postman Test Example</h2>
+      <p><strong>Test:</strong> Creating a New Project</p>
+      <p><strong>Method:</strong> POST</p>
+      <p><strong>URL:</strong> http://localhost:3000/projects</p>
+
+      <p><strong>Request Body (JSON being sent):</strong></p>
+      <pre>
+      {
+      "projectname": "Test Project",
+      "projectdesc": "testing",
+      "startdate": "2025-02-01 08:00",
+      "enddate": "2026-09-30 09:00"
+    }</pre
+      >
+
+      <p>
+        <strong>Expected Result:</strong> This adds a project to the database.
+        If successful, the server responds with a JSON object containing the
+        data about the insert query
+      </p>
+
+      <p>
+        <strong> Expected JSON Response Body:</strong>
+      </p>
+      <pre>
+{
+      "fieldCount": 0,
+      "affectedRows": 1,
+      "insertId": 21,
+      "info": "",
+      "serverStatus": 2,
+      "warningStatus": 0,
+      "changedRows": 0
+    }</pre
+      >
+      <p>
+        <p><strong>Expected HTTP Status Code Given Back:</strong> 201 Created</p>
+      </div>
+      </p>
+    </div>
+  </body>
+</html>
